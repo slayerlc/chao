@@ -18,16 +18,10 @@
     <description>Demo project for Spring Boot</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.common</groupId>
-            <artifactId>common</artifactId>
-            <version>${com.common}</version>
-        </dependency>
-
+        <!-- eureka 服务端支持-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
-            <version>1.3.2.RELEASE</version>
         </dependency>
     </dependencies>
 

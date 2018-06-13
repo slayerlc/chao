@@ -35,17 +35,17 @@
     </properties>
 
     <!-- 这个是用来统一spring cloud 的版本用的 但是在eureka pom里面 eureka-server 还是得加版本号不知道为什么 不然找不到注解-->
-    <!--<dependencyManagement>
+    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.RC2</version>
+                <version>Edgware.SR3</version> <!-- 这里Finchley.RC2 的版本maven repository上面没有下载不到 所以spring boot 不能用2.0.2版本-->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
-    </dependencyManagement>-->
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -63,6 +63,18 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.common</groupId>
+            <artifactId>common</artifactId>
+            <version>${com.common}</version>
+        </dependency>
+        <!-- slf4j日志-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
         </dependency>
     </dependencies>
 
