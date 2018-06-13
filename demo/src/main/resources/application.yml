@@ -1,0 +1,19 @@
+#jar包启动的时候 可以通过 java -jar xx.jar --server.port=8080 启动指定端口 或者 --spring.profiles.active=local 根据不同的环境指定读取的配置文件
+spring:
+  profiles:
+    active: local #根据不同的环境读取配置文件 local或者test
+  application:
+    name: demo  #设置服务名称
+  security:
+    user:
+      name: lvchao
+      password: lvchao
+server:
+  port: 8081
+#这个用来开启 spring-boo七-starter-actuator 模块 这个模块可以对 Spring Boot 构建的应用提供 一系列用于监控的端点。
+management:
+  endpoints:          #这里可以指定端口  不指定则默认为 server.port端口
+    web:
+      exposure:
+        include: "*"  #这个代表开启全部
+
