@@ -14,7 +14,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
+        <version>1.5.2.RELEASE</version>  <!-- 这里2.0.2.RELEASE 版本对应的springcloud JAR需要Finchley 但是这个版本还没有正式版-->
         <relativePath/> <!-- lookup parent from repository -->
         <!-- <relativePath>: 表示父模块POM的相对路径。在构建的时候会根据relativePath查找父POM，如果找不到则按照 （本地仓库–远程仓库） 的顺序去找！ -->
         <!-- 默认值：<relativePath>../pom.xml<relativePath/> -->
@@ -31,7 +31,21 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <com.common>0.0.1-SNAPSHOT</com.common>
     </properties>
+
+    <!-- 这个是用来统一spring cloud 的版本用的 但是在eureka pom里面 eureka-server 还是得加版本号不知道为什么 不然找不到注解-->
+    <!--<dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.RC2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>-->
 
     <dependencies>
         <dependency>
