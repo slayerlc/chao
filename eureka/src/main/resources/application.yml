@@ -1,10 +1,15 @@
+spring:
+  application:
+    name: eureka-cluster
 server:
   port: 8001
 eureka:
   instance:
-    hostname: localhost
+    hostname: localhost  #eureka实例名称
+    prefer-ip-address: true  #不使用实例名字来 定义注册中心地址 使用IP 如果使用实例名的话在windows需要配置host
   client:
     register-with-eureka: false  #默认的eureka会将自己作为客户端来尝试注册自己  设置为false 代表不向自己注册
     fetch-registry: false         #由于注册中心的职责就是维护服务实例，它并不需要去检索服务， 所以也设置为 false。
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  #服务注册地址  并且还可以通过地址直接访问信息面板 不需要带后面的/eureka/
+    service-url:
+      #服务注册地址  并且还可以通过地址直接访问信息面板 不需要带后面的/eureka/ 这里peer2只的是集群配置
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

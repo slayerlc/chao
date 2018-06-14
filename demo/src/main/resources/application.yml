@@ -1,19 +1,18 @@
-#jar°üÆô¶¯µÄÊ±ºò ¿ÉÒÔÍ¨¹ı java -jar xx.jar --server.port=8080 Æô¶¯Ö¸¶¨¶Ë¿Ú »òÕß --spring.profiles.active=local ¸ù¾İ²»Í¬µÄ»·¾³Ö¸¶¨¶ÁÈ¡µÄÅäÖÃÎÄ¼ş
+#jaråŒ…å¯åŠ¨çš„æ—¶å€™ å¯ä»¥é€šè¿‡ java -jar xx.jar --server.port=8080 å¯åŠ¨æŒ‡å®šç«¯å£ æˆ–è€… --spring.profiles.active=local æ ¹æ®ä¸åŒçš„ç¯å¢ƒæŒ‡å®šè¯»å–çš„é…ç½®æ–‡ä»¶
 spring:
   profiles:
-    active: local #¸ù¾İ²»Í¬µÄ»·¾³¶ÁÈ¡ÅäÖÃÎÄ¼ş local»òÕßtest
+    active: local #æ ¹æ®ä¸åŒçš„ç¯å¢ƒè¯»å–é…ç½®æ–‡ä»¶ localæˆ–è€…test
   application:
-    name: demo  #ÉèÖÃ·şÎñÃû³Æ
+    name: demo  #è®¾ç½®æœåŠ¡åç§°
   security:
     user:
       name: lvchao
       password: lvchao
 server:
   port: 8081
-#Õâ¸öÓÃÀ´¿ªÆô spring-booÆß-starter-actuator Ä£¿é Õâ¸öÄ£¿é¿ÉÒÔ¶Ô Spring Boot ¹¹½¨µÄÓ¦ÓÃÌá¹© Ò»ÏµÁĞÓÃÓÚ¼à¿ØµÄ¶Ëµã¡£
+#è¿™ä¸ªç”¨æ¥å¼€å¯ spring-boot-starter-actuator æ¨¡å— è¿™ä¸ªæ¨¡å—å¯ä»¥å¯¹ Spring Boot æ„å»ºçš„åº”ç”¨æä¾› ä¸€ç³»åˆ—ç”¨äºç›‘æ§çš„ç«¯ç‚¹ã€‚
 management:
-  endpoints:          #ÕâÀï¿ÉÒÔÖ¸¶¨¶Ë¿Ú  ²»Ö¸¶¨ÔòÄ¬ÈÏÎª server.port¶Ë¿Ú
+  endpoints:          #è¿™é‡Œå¯ä»¥æŒ‡å®šç«¯å£  ä¸æŒ‡å®šåˆ™é»˜è®¤ä¸º server.portç«¯å£
     web:
       exposure:
-        include: "*"  #Õâ¸ö´ú±í¿ªÆôÈ«²¿
-
+        include: "*"  #è¿™ä¸ªä»£è¡¨å¼€å¯å…¨éƒ¨

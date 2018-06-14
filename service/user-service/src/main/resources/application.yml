@@ -5,5 +5,5 @@ spring:
     name: user-service
 eureka:
   client:
-    serviceUrl:
-      defaultZone: http://localhost:8001/eureka/
+    service-url:
+      defaultZone: http://localhost:8001/eureka/ #注册到多个上面 集群的配置,http://localhost:8003/eureka/

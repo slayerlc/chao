@@ -1,0 +1,15 @@
+server:
+  port: 8002
+eureka:
+  instance:
+    hostname: peer1 #eureka实例名称
+  client:
+    register-with-eureka: true  #默认的eureka会将自己作为客户端来尝试注册自己  设置为false 代表不向自己注册
+    fetch-registry: true         #由于注册中心的职责就是维护服务实例，它并不需要去检索服务， 所以也设置为 false。
+    service-url:
+    #服务注册地址  并且还可以通过地址直接访问信息面板 不需要带后面的/eureka/ 这里peer2只的是集群配置
+    #eureka集群实际就是将自己作为服务向其他的服务中心注册自己 形成一组互相注册的服务注册中心 达到高  可用效果
+    #这里启动的时候由于先启动的服务没有注册中心可以注册 所以先启动的会报错 只要把第2个启动了 那么第一个自动会找到第2个注册成功
+    #这里peer2 不能用127.0.0.1 或者localhost 不然就 会出现unavailable-replicas 不能分片
+    #eureka: instance: prefer-ip-address: true 就可以用IP地址了
+      defaultZone: http://localhost:8003/eureka/
