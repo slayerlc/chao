@@ -1,30 +1,29 @@
 package com.demo;
 
-import com.common.TestUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
+@EnableEurekaClient
 public class DemoApplication {
 
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(DemoApplication.class);
         springApplication.run(args);
-        Set setListeners = springApplication.getListeners();
-        analyze(setListeners);
-        new TestUtil().test();
     }
 
-    public static void analyze(Set set){
-        Iterator i = set.iterator();
-        while(i.hasNext()){
-            Object obj = i.next();
-            System.out.println(obj);
-        }
+    /**
+     * 配置 ribbon 的负载均衡 默认是轮询的方式
+     * @return
+     */
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
     }
 }

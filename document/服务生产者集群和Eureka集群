@@ -1,0 +1,14 @@
+服务集群:
+把同一个服务以2个不同的端口启动 注册到同一个eurekaServer上，就会出现一个服务对多个服务的实例。
+然后使用ribbon创建一个服务消费端通过 restTemplate去调用注册到eurekaServer上的服务。
+restTemplate 是通过服务名称去调用。比如下面这个服务 就有2个实例。
+他会按负载均衡的规则去调用同一个服务下的多个实例。
+服务名称USER-SERVICE  实例（“，”分割多个实例）PC-20180109BHED:user-service:8011,PC-20180109BHED:user-service:8012
+配置@LoadBalanced 实现负载均衡 默认是轮训的方式调用
+
+
+eureka服务注册中心集群:
+具体配置看eureka服务的 application-peer1和 application-peer2。
+eureka集群实际上是 多个服务注册中心相互注册 比如：
+A注册在B上  B注册在C上  C注册在A上 这样形成一个互相注册的注册中心。
+当一个服务接受到注册请求的时候，他会转发该请求给集群中的其他注册中心，从而实现注册中心的服务同步。

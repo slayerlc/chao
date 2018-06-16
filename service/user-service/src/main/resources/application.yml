@@ -6,4 +6,4 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8001/eureka/ #注册到多个上面 集群的配置,http://localhost:8003/eureka/
+      defaultZone: http://localhost:8002/eureka/ #这里可以通过“，”注册到多个eurekaServer上面 ,http://localhost:8003/eureka/

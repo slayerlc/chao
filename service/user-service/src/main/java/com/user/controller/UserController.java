@@ -26,6 +26,7 @@ public class UserController {
     public String hello(){
         ServiceInstance serviceInstance = client.getLocalServiceInstance();
         logger.info("/user/hello host:{} service_id:{}",serviceInstance.getHost(),serviceInstance.getServiceId());
+        System.out.println(serviceInstance.getHost()+"@@@@@@@@@@@"+serviceInstance.getServiceId());
         return "hello";
     }
 }

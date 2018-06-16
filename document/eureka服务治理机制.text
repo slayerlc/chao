@@ -1,0 +1,20 @@
+服务提供者
+ 服务注册：
+ 服务提供者 注册会通过Rest请求的方式将自己注册到EurekaServer上，同时带有自身服务的一些原信息。
+ eureka.cli ent.register-with-eureka=true
+ 参数是否正确， 该值默认为true。 若设置为false将不会 启动注册操作。
+ 将原信息存在一个双层MAP的结构中。其中第一层key是服务名，第二层key是具体服务的实例名称。
+ 例如第一层服务名:USER-SERVICE 第二层服务名PC-20180109BHED:user-service:8011。
+ 在ribbon的负载均衡的例子中一个服务 有多个实例的情况
+ 第一层key: USER-SERVICE
+ 第二层key: PC-20180109BHED:user-service:8011，PC-20180109BHED:user-service:8012
+
+ 服务同步:
+ 例如：三个服务提供者分别注册到三个不同的服务注册中心上,他们的信息会被三个EurekaServer所维护同步。
+ 这个时候由于三个EurekaServer A-B-C-A 像这样循环互相注册，当一个服务提供者 在其中一个EurekaServer注册
+ 的时候，他会将请求转发到集群中相关的注册中心上，所以这3个服务注册之后他们的信息被同步到每一台注册中心上
+ 任意一台服务注册中心，都可以获取当这3个服务的信息。
+
+//TODO 吕超 这里还没写完
+服务续约:
+在注册完服务之后，服务提供者会维护一个心跳用来维持告诉eurekaServer 我还活着。
