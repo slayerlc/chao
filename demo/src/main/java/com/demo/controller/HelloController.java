@@ -1,5 +1,6 @@
 package com.demo.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +19,14 @@ public class HelloController {
     @Autowired
     RestTemplate restTemplate;
 
+    @HystrixCommand(fallbackMethod = "helloBack")
     @RequestMapping(value = "hello", method = RequestMethod.GET)
     @ResponseBody
     public String hello(){
         return restTemplate.getForEntity("http://USER-SERVICE/user/hello",String.class).getBody();
+    }
+
+    public String helloBack(){
+        return "error";
     }
 }

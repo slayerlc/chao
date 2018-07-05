@@ -7,3 +7,4 @@ eureka:
   client:
     service-url:
       defaultZone: http://lvchao:123456@localhost:8002/eureka/ #这里可以通过“，”注册到多个eurekaServer上面 ,http://localhost:8003/eureka/
+#熔断器配置
