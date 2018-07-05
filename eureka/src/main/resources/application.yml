@@ -5,6 +5,12 @@ spring:
     #或者--spring.profiles.active=peer1 直接在命令行指定也行
   profiles:
     active: peer1
+security:             #设置注册中心的账号密码  需要在URL中加入账号和密码 http://<user>:<password>@localhost:${server.port}/eureka
+  user:
+    name: lvchao
+    password: 123456
+  basic:
+    enabled: true
 eureka:
   instance:
     prefer-ip-address: true  #不使用实例名字来 定义注册中心地址 使用IP 如果使用实例名的话在windows需要配置host

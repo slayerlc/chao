@@ -4,10 +4,6 @@ spring:
     active: local #根据不同的环境读取配置文件 local或者test
   application:
     name: demo  #设置服务名称
-  security:
-    user:
-      name: lvchao
-      password: lvchao
 server:
   port: 9001
 eureka:
