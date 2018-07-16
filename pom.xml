@@ -71,11 +71,12 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <!-- 熔断器配置 -->
         <dependency>
-            <groupId>com.common</groupId>
-            <artifactId>common</artifactId>
-            <version>${com.common}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
+
         <!-- slf4j日志-->
         <dependency>
             <groupId>org.slf4j</groupId>

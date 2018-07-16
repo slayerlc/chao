@@ -4,7 +4,7 @@ spring:
     #这里切换配置文件的  配置集群的时候 启动peer1的配置  然后切换到peer2在启动
     #或者--spring.profiles.active=peer1 直接在命令行指定也行
   profiles:
-    active: peer1
+    active: local
 security:             #设置注册中心的账号密码  需要在URL中加入账号和密码 http://<user>:<password>@localhost:${server.port}/eureka
   user:
     name: lvchao
@@ -16,6 +16,8 @@ eureka:
     prefer-ip-address: true  #不使用实例名字来 定义注册中心地址 使用IP 如果使用实例名的话在windows需要配置host
   client:
   #默认的eureka会将自己作为客户端来尝试注册自己  设置为false 代表不向自己注册 因为eureka集群就是多个eureka互相注册 这里就得设置为true 单服务启动设置为false
-    register-with-eureka: true
-    #为了定期的更新客户端的服务清单，以保证服务访问的正确性，“服务获取”的请求不会只限于服务启动，而是一个定时执行的任务 false之后不会定时去获取服务信息
-    fetch-registry: true
+    register-with-eureka: false   #单机设置为false
+    #为了集群的各个eureka注册中心定期的更新客户端的服务清单，以保证服务访问的正确性，“服务获取”的请求不会只限于服务启动，而是一个定时执行的任务 false之后不会定时去获取服务信息
+    fetch-registry: false    #单机设置为false
+  server:
+    enableSelfPreservation: true  #false关闭服务保护机制

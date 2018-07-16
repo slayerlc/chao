@@ -8,9 +8,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
+//这里还可以直接启动 @SpringCloudApplication 里面包含了熔断和 @SpringBootApplication  @EnableDiscoveryClient 配置
 @SpringBootApplication
-@EnableEurekaClient
-@EnableCircuitBreaker
+@EnableEurekaClient   //配置了这个 就不用配置 @EnableDiscoveryClient
+@EnableCircuitBreaker  //熔断器配置
 public class DemoApplication {
 
     public static void main(String[] args) {
