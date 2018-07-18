@@ -1,3 +1,4 @@
+/*
 package com.demo;
 
 import com.demo.controller.HelloController;
@@ -23,9 +24,11 @@ public class DemoApplicationTests {
 
     private MockMvc mockMvc;  //用于模拟调用Controller的接口发送请求
 
-    /**
+    */
+/**
      *  Junit在这里初始化对HelloController的模拟
-     */
+     *//*
+
     @Before
     public void setUp(){
         mockMvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
@@ -42,3 +45,4 @@ public class DemoApplicationTests {
     }
 
 }
+*/

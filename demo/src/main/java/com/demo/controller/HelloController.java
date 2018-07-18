@@ -26,7 +26,8 @@ public class HelloController {
         return restTemplate.getForEntity("http://USER-SERVICE/user/hello",String.class).getBody();
     }
 
-    public String helloBack(){
+    public String helloBack(Throwable e){
+        e.printStackTrace();
         return "error";
     }
 }

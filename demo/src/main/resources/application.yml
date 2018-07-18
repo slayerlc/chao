@@ -1,5 +1,5 @@
 server:
-  port: 9001
+  port: 9002
 spring:
   profiles:
     active: local #根据不同的环境读取配置文件 local或者test
@@ -7,8 +7,8 @@ spring:
     name: demo
 eureka:
   client:
-    service-url:
-      defaultZone: http://lvchao:123456@localhost:8001/eureka/ #这里可以通过“，”注册到多个eurekaServer上面 ,http://localhost:8003/eureka/
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8001/eureka/ #这里可以通过“，”注册到多个eurekaServer上面 ,http://localhost:8003/eureka/
 #这个用来开启 spring-boot-starter-actuator 模块 这个模块可以对 Spring Boot 构建的应用提供 一系列用于监控的端点。
 management:
   endpoints:          #这里可以指定端口  不指定则默认为 server.port端口

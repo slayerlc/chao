@@ -19,7 +19,7 @@
         <!-- eureka 客户端支持-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <artifactId>spring-cloud-netflix-eureka-client</artifactId>
         </dependency>
 
     </dependencies>

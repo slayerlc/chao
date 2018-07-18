@@ -19,14 +19,8 @@ public class UserController {
 
     private  final Logger logger = LoggerFactory.getLogger(UserController.class);
 
-    @Autowired
-    private DiscoveryClient client;
-
     @GetMapping(value = "hello")
     public String hello(){
-        ServiceInstance serviceInstance = client.getLocalServiceInstance();
-        logger.info("/user/hello host:{} service_id:{}",serviceInstance.getHost(),serviceInstance.getServiceId());
-        System.out.println(serviceInstance.getHost()+"@@@@@@@@@@@"+serviceInstance.getServiceId());
         return "hello";
     }
 }
