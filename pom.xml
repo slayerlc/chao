@@ -24,6 +24,8 @@
         <module>demo</module>
         <module>study</module>
         <module>eureka</module>
+        <module>gateway</module>
+        <module>service</module>
     </modules>
 
     <properties>
@@ -50,26 +52,8 @@
         <!--                               spring boot                                      -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <!-- 入该模块能够自动为 Spring Boot 构建的应用提供 一系列用千监控的端点。-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-        <!--                               spring boot                                      -->
-
-        <!-- ribbon是基于HTTP和TCP的客户端负载均衡器 ,也可以用来做 服务消费   -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
 
         <!-- 熔断器配置 -->
@@ -77,6 +61,27 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
+
+        <!-- 入该模块能够自动为 Spring Boot 构建的应用提供 一系列用千监控的端点。-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- ribbon是基于HTTP和TCP的客户端负载均衡器 ,也可以用来做 服务消费   -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.0</version>
+            <scope>provided</scope>
+        </dependency>
+
 
         <!-- slf4j日志-->
         <dependency>
@@ -94,6 +99,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>

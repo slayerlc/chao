@@ -10,6 +10,10 @@ eureka:
 #这个用来开启 spring-boot-starter-actuator 模块 这个模块可以对 Spring Boot 构建的应用提供 一系列用于监控的端点。
 management:
   endpoints:          #这里可以指定端口  不指定则默认为 server.port端口
-    web:
       exposure:
         include: "*" #这个代表开启全部
+logging:
+  file: ..\..\chao\chao-logs\user-service\user-service.log
+  level:
+    max-size: 5M
+    root: INFO

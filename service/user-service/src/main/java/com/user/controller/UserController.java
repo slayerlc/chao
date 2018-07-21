@@ -8,6 +8,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author lvchao
@@ -17,10 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "user")
 public class UserController {
 
-    private  final Logger logger = LoggerFactory.getLogger(UserController.class);
+    @Autowired
+    RestTemplate restTemplate;
 
     @GetMapping(value = "hello")
     public String hello(){
+        System.out.println("@@@@@@@@");
         return "hello";
     }
+
 }
