@@ -19,8 +19,7 @@ public class PreGatewayFilterFactory extends AbstractGatewayFilterFactory<PreGat
         return new GatewayFilter() {
             @Override
             public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-                ServerHttpRequest.Builder builder = exchange.getRequest().mutate();
-                return chain.filter(exchange.mutate().request(builder.build()).build());
+                return chain.filter(exchange);
             }
         };
     }

@@ -1,4 +1,4 @@
-package com.user.controller;
+package com.message.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,8 +15,8 @@ import org.springframework.web.client.RestTemplate;
  * @date 2018/6/13
  */
 @RestController
-@RequestMapping(value = "user")
-public class UserController {
+@RequestMapping(value = "message")
+public class MessageController {
 
     @Autowired
     RestTemplate restTemplate;
@@ -24,7 +24,7 @@ public class UserController {
     @GetMapping(value = "hello")
     public String hello(){
         System.out.println("@@@@@@@@");
-        return "user-service";
+        return "message-service";
     }
 
 }
