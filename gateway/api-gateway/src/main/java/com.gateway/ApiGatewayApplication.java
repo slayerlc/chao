@@ -10,6 +10,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 @Configuration
 @SpringBootApplication
@@ -40,24 +41,24 @@ public class ApiGatewayApplication {
                 .route(predicateSpec -> predicateSpec.path("/test/**").filters(gatewayFilterSpec -> gatewayFilterSpec
                                .filter(new PreGatewayFilterFactory().apply(new PreGatewayFilterFactory.Config()))
                 ).uri("lb://USER-SERVICE")).build();
-        // http://localhost:9999/USER-SERVICE/user/hello  所以这里的服务路由/USER-SERVICE/** 其实是gateway自己根据服务名称定义的
+        // http://localhost:9999/USER-SERVICE/user/hello  所以这里的服务路由/USER-SERVICE/** 其实是gateway默认自己根据服务名称定义的
     }
 
     /**
-     * 启动 WebClient 负载均衡
+     * 启动 WebClient 负载均衡  spring cloud gateway 使用的是webFlux
      * webClient是webFlux 里面用来调用别的服务的类似ribbon的restTemplate
      *
      * @return
      */
-    /*@Bean
+    @Bean
     @LoadBalanced
     public WebClient.Builder loadBalancedWebClientBuilder() {
         return WebClient.builder();
-    }*/
+    }
 
-    @Bean
+    /*@Bean
     @LoadBalanced
     public RestTemplate restTemplate() {
         return new RestTemplate();
-    }
+    }*/
 }

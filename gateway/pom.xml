@@ -17,15 +17,10 @@
 
     <modules>
         <module>api-gateway</module>
+        <module>zuul-gateway</module>
     </modules>
 
 	<dependencies>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-
         <!-- eureka 客户端支持-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

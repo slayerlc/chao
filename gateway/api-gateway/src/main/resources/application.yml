@@ -11,7 +11,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8001/eureka
+      defaultZone: http://localhost:8888/eureka
 #这个用来开启 spring-boot-starter-actuator 模块 这个模块可以对 Spring Boot 构建的应用提供 一系列用于监控的端点。
 management:
   endpoints:          #这里可以指定端口  不指定则默认为 server.port端口
