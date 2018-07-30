@@ -40,8 +40,8 @@ public class ApiGatewayApplication {
         //目前这里的问题不知道为什么,下面配置的这个路由是无效的 对于服务调用 gateway只能使用他自己默认定义的路由规则对应到服务,自定义的都无效。
                 .route(predicateSpec -> predicateSpec.path("/test/**").filters(gatewayFilterSpec -> gatewayFilterSpec
                                .filter(new PreGatewayFilterFactory().apply(new PreGatewayFilterFactory.Config()))
-                ).uri("lb://USER-SERVICE")).build();
-        // http://localhost:9999/USER-SERVICE/user/hello  所以这里的服务路由/USER-SERVICE/** 其实是gateway默认自己根据服务名称定义的
+                ).uri("lb://USER-SERVICE-V1")).build();
+        // http://localhost:9999/USER-SERVICE-V1/user/hello  所以这里的服务路由/USER-SERVICE-V1/** 其实是gateway默认自己根据服务名称定义的
     }
 
     /**

@@ -1,6 +1,6 @@
-package com.common.imageHandler;
+package com.util.imageHandler;
 
-import com.common.javacv.ComposeVideo;
+import com.util.javacv.ComposeVideo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

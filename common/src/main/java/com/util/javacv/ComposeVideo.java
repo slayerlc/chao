@@ -1,4 +1,4 @@
-package com.common.javacv;
+package com.util.javacv;
 
 import org.bytedeco.javacpp.avcodec;
 import org.bytedeco.javacpp.opencv_core;

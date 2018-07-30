@@ -1,4 +1,4 @@
-package com.common.imageHandler;
+package com.util.imageHandler;
 
 import java.io.File;
 import java.util.ArrayList;
