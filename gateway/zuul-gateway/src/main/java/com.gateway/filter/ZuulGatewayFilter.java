@@ -3,13 +3,8 @@ package com.gateway.filter;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
-import org.apache.http.HttpStatus;
-import org.springframework.cloud.netflix.zuul.filters.post.SendErrorFilter;
-import org.springframework.stereotype.Component;
-import org.springframework.util.ReflectionUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class ZuulGatewayFilter extends ZuulFilter {
 
