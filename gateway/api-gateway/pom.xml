@@ -5,7 +5,7 @@
 
     <groupId>api-gateway</groupId>
     <artifactId>api-gateway</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${chao.version}</version>
     <packaging>jar</packaging>
 
     <name>api-gateway</name>
@@ -14,7 +14,7 @@
     <parent>
         <groupId>com.chao</groupId>
         <artifactId>gateway</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <dependencies>

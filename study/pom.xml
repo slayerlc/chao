@@ -5,7 +5,7 @@
     <parent>
         <artifactId>chao</artifactId>
         <groupId>com.chao</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion> <!--指定了当前Maven模型的版本号，对于Maven2和Maven3来说，它只能是4.0.0-->
 

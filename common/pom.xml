@@ -4,19 +4,19 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>chao</artifactId>
         <groupId>com.chao</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <artifactId>chao</artifactId>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>common</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <version>${common.version}</version>
+
     <name>common</name>
     <description>Demo project for Spring Boot</description>
 
     <dependencies>
-        <dependency>
+       <!-- <dependency>
             <groupId>org.bytedeco</groupId>
             <artifactId>javacpp</artifactId>
             <version>1.4.1</version>
@@ -36,11 +36,7 @@
             <artifactId>ffmpeg-platform</artifactId>
             <version>3.4.2-1.4.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>4.3.12.RELEASE</version>
-        </dependency>
+       -->
     </dependencies>
 
 </project>

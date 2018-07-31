@@ -1,6 +1,6 @@
 package com.message.controller;
 
-import com.common.ResultMap;
+import com.general.ResultMap;
 import com.message.model.Message;
 import com.message.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;

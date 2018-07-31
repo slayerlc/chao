@@ -1,6 +1,6 @@
-package com.common;
+package com.general;
 
-import com.common.constant.HttpStatus;
+import com.general.constant.HttpStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import java.util.Date;

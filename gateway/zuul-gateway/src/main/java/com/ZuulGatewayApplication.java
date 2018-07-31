@@ -1,6 +1,6 @@
-package com.gateway;
+package com;
 
-import com.gateway.filter.ZuulGatewayFilter;
+import com.filter.ZuulGatewayFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;

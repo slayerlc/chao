@@ -1,10 +1,9 @@
-package com.gateway.controller;
+package com.controller;
 
 
-import com.common.ResultMap;
+import com.general.ResultMap;
 import com.netflix.zuul.context.RequestContext;
 import org.apache.http.HttpStatus;
-import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

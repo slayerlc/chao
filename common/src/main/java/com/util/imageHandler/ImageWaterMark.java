@@ -1,3 +1,4 @@
+/*
 package com.util.imageHandler;
 
 import com.util.javacv.ComposeVideo;
@@ -20,10 +21,12 @@ public class ImageWaterMark extends ImageHandle {
     private String smallLogo; //LOGO图片的路径 小图标
     private String bigLogo;   //LOGO图片的路径 大图标
 
-    /**
+    */
+/**
      * 图片添加水印
      * @param imageFile 图片文件
-     */
+     *//*
+
     public void iamgeAddLogo(File imageFile){
         OutputStream os = null;
         try{
@@ -79,10 +82,12 @@ public class ImageWaterMark extends ImageHandle {
         }
     }
 
-    /**
+    */
+/**
      * 获取所有需要处理的文件
      * @param file 文件根目录
-     */
+     *//*
+
     @Override
     public void handlerFile(File file){
         //代表已经处理过的图片目录不需要在处理一次了
@@ -110,3 +115,4 @@ public class ImageWaterMark extends ImageHandle {
         composeVideo.handlerDir(file);
     }
 }
+*/

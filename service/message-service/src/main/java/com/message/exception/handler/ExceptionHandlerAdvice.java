@@ -1,7 +1,7 @@
 package com.message.exception.handler;
 
-import com.common.ResultMap;
-import com.common.constant.HttpStatus;
+import com.general.ResultMap;
+import com.general.constant.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

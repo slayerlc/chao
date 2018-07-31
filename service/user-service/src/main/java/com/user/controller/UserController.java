@@ -21,7 +21,6 @@ public class UserController {
     @Autowired
     RestTemplate restTemplate;
 
-    @GetMapping(value = "hello")
     public String hello(){
         System.out.println("@@@@@@@@");
         return "user-service";

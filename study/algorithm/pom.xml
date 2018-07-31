@@ -5,7 +5,7 @@
 
     <groupId>com.algorithm</groupId>
     <artifactId>algorithm</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${chao.version}</version>
     <packaging>jar</packaging>
 
     <name>algorithm</name>
@@ -14,7 +14,7 @@
     <parent>
         <artifactId>study</artifactId>
         <groupId>com.chao</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
 </project>

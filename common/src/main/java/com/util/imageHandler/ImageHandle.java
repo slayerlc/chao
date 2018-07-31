@@ -1,3 +1,4 @@
+/*
 package com.util.imageHandler;
 
 import java.io.File;
@@ -5,10 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class ImageHandle {
-    /**
+    */
+/**
      * 获取一个目录下所有文件,并处理所有文件
      * @param file 文件根目录
-     */
+     *//*
+
     public void handlerAllImage(File file) {
         //如果是目录则获得目录下所有文件
         if(file.isDirectory()){
@@ -24,17 +27,22 @@ public abstract class ImageHandle {
         }
     }
 
-    /**
+    */
+/**
      * 获取一个目录下所有文件,并处理所有文件
      * @param res 文件根目录
-     */
+     *//*
+
     public void handlerAllImage(String res) {
         handlerAllImage(new File(res));
     }
 
-    /**
+    */
+/**
      * 处理文件
      * @param file
-     */
+     *//*
+
     public abstract void handlerFile(File file);
 }
+*/

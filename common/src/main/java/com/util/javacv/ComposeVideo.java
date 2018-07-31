@@ -1,3 +1,4 @@
+/*
 package com.util.javacv;
 
 import org.bytedeco.javacpp.avcodec;
@@ -19,12 +20,14 @@ public class ComposeVideo {
     FFmpegFrameRecorder recorder;
     OpenCVFrameConverter.ToIplImage conveter;
 
-    /**
+    */
+/**
      * 初始化视频合成参数
      *
      * @param saveMp4name 保存视频的位置
      * @throws Exception
-     */
+     *//*
+
     public void init(String saveMp4name) {
         try {
             recorder = new FFmpegFrameRecorder(saveMp4name, 1024, 768);
@@ -40,9 +43,11 @@ public class ComposeVideo {
         }
     }
 
-    /**
+    */
+/**
      * 释放资源
-     */
+     *//*
+
     public void release() {
         try {
             this.recorder.stop();
@@ -53,12 +58,14 @@ public class ComposeVideo {
         }
     }
 
-    /**
+    */
+/**
      * 合成视频
      *
      * @param imageFiles 图片文件集合
      * @throws FrameRecorder.Exception
-     */
+     *//*
+
     public void compose(File[] imageFiles) throws FrameRecorder.Exception {
         recorder.start();
         //合成视频
@@ -76,12 +83,14 @@ public class ComposeVideo {
         release();
     }
 
-    /**
+    */
+/**
      * 获得所有处理过后的图片目录
      *
      * @param file 图片根路径
      * @throws Exception
-     */
+     *//*
+
     public void handlerDir(File file) {
         if (!file.getName().matches(".*.tgz") && file.isDirectory()) {
             for (File f : file.listFiles()) {
@@ -111,3 +120,4 @@ public class ComposeVideo {
         image.renameTo(toImage);
     }
 }
+*/

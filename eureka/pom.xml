@@ -6,11 +6,11 @@
     <parent>
         <groupId>com.chao</groupId>
         <artifactId>chao</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>eureka</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${chao.version}</version>
     <packaging>jar</packaging>
 
     <name>eureka</name>
@@ -29,5 +29,17 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>-->
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

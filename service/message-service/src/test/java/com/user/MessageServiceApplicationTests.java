@@ -1,3 +1,4 @@
+/*
 package com.user;
 
 import com.message.controller.MessageController;
@@ -24,11 +25,14 @@ public class MessageServiceApplicationTests {
 
     @Test
     public void hello() throws Exception {
-      /*  mockMvc.perform(MockMvcRequestBuilders.get("/user/hello").accept(MediaType.APPLICATION_JSON))
+      */
+/*  mockMvc.perform(MockMvcRequestBuilders.get("/user/hello").accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(Matchers.equalToIgnoringCase("hello")));
 
-       */
+       *//*
+
     }
 
 }
+*/
