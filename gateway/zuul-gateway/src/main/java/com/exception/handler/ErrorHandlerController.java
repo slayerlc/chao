@@ -1,9 +1,10 @@
-package com.controller;
+package com.exception.handler;
 
 
 import com.general.ResultMap;
 import com.netflix.zuul.context.RequestContext;
 import org.apache.http.HttpStatus;
+import org.apache.http.entity.ContentType;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,7 @@ public class ErrorHandlerController implements ErrorController {
     @RequestMapping("/error")
     public ResultMap handlerError() {
         RequestContext ctx = RequestContext.getCurrentContext();
-        ctx.getResponse().setContentType("application/json; charset=utf8");
+        ctx.getResponse().setContentType(ContentType.APPLICATION_JSON.toString());
         return new ResultMap(HttpStatus.SC_INTERNAL_SERVER_ERROR, false, ctx.getThrowable().getCause().getMessage());
     }
 }

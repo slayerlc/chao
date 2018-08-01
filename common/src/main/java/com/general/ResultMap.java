@@ -11,17 +11,17 @@ import java.util.Date;
  */
 public class ResultMap {
 
-    public Date time;
+    private Date time;
 
-    public Integer status_code;
-
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public Object data;
-
-    public Boolean status;
+    private Integer status_code;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public String error;
+    private Object data;
+
+    private Boolean status;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String error;
 
     public ResultMap(Integer status_code,boolean status, String error) {
         this.time = new Date();
@@ -30,20 +30,20 @@ public class ResultMap {
         this.error = error;
     }
 
-    public ResultMap(Object message) {
+    public ResultMap(Object data) {
         this.time = new Date();
         this.status = true;
         this.status_code = HttpStatus.SC_OK;
-        this.data = message;
+        this.data = data;
     }
 
     public ResultMap(){};
 
-    public ResultMap successResult(Object message){
+    public ResultMap successResult(Object data){
         this.time = new Date();
         this.status = true;
         this.status_code = HttpStatus.SC_OK;
-        this.data = message;
+        this.data = data;
         return this;
     }
 

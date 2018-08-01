@@ -1,4 +1,4 @@
-package com.message.controller;
+package com.message.api;
 
 import com.general.ResultMap;
 import com.message.model.Message;

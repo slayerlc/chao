@@ -15,12 +15,7 @@ public class PreGatewayFilterFactory extends AbstractGatewayFilterFactory<PreGat
     @Override
     public GatewayFilter apply(Config config) {
 
-        return new GatewayFilter() {
-            @Override
-            public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-                return chain.filter(exchange);
-            }
-        };
+        return (exchange, chain) -> chain.filter(exchange);
     }
 
     public static class Config{
