@@ -18,4 +18,4 @@ logging:
     root: INFO
 
 restUrl:
-  userServiceRest: http://USER-SERVICE-V1/sss
+  userServiceRest: http://USER-SERVICE-V1/

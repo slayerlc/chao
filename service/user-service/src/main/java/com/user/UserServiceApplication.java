@@ -1,5 +1,7 @@
 package com.user;
 
+import com.annotation.EnableAmqp;
+import com.configuration.RabbitMqConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -11,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableEurekaClient   //配置了这个 就不用配置 @EnableDiscoveryClient
 @EnableCircuitBreaker  //熔断器配置
+@EnableAmqp
 public class UserServiceApplication {
 
     public static void main(String[] args) {

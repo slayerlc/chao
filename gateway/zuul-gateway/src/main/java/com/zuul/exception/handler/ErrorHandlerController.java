@@ -1,4 +1,4 @@
-package com.exception.handler;
+package com.zuul.exception.handler;
 
 
 import com.general.ResultMap;

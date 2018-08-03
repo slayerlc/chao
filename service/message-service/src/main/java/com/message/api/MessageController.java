@@ -1,10 +1,10 @@
 package com.message.api;
 
-import com.general.ResultMap;
 import com.message.amqp.MessageSend;
 import com.message.model.Message;
 import com.message.service.MessageService;
 import com.message.service.RestTemplateService;
+import com.general.ResultMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,7 +30,7 @@ public class MessageController {
 
     @PostMapping(value = "sendMessage")
     public ResultMap sendMessage(@RequestBody Message message){
-        messageSend.send();
+        messageSend.send("所有服务听好了，今天全部给我加班。");
         return new ResultMap().successResult(restTemplateService.userHello(message));
     }
 

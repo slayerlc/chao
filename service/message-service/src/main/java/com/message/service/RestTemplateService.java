@@ -1,7 +1,5 @@
 package com.message.service;
 
-import com.alibaba.fastjson.JSONObject;
-import com.general.ResultMap;
 import com.message.model.Message;
 
 /**

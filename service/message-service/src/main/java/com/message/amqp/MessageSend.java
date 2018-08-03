@@ -16,9 +16,8 @@ public class MessageSend {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
-    public void send(){
-        String str = "hello";
-        log.info("send start Object:{}",str);
-        this.amqpTemplate.convertAndSend("helloKey",str);
+    public void send(String content){
+        log.info("start send content:{}",content);
+        this.amqpTemplate.convertAndSend("serviceFanoutExchange",null,content);
     }
 }

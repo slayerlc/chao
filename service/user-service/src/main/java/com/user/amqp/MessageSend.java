@@ -17,8 +17,5 @@ public class MessageSend {
     private AmqpTemplate amqpTemplate;
 
     public void send(){
-        String str = "hello";
-        log.info("send start Object:{}",str);
-        this.amqpTemplate.convertAndSend("helloKey",str);
     }
 }

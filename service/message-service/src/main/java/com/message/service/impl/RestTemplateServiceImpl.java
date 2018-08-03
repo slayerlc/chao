@@ -1,7 +1,6 @@
 package com.message.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.general.ResultMap;
 import com.message.model.Message;
 import com.message.service.RestTemplateService;
 import lombok.extern.slf4j.Slf4j;

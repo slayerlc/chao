@@ -11,13 +11,13 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-@RabbitListener(queues = "helloKey")
 public class Receiver {
 
     //这里参数取决于 发送的时候 的参数类型 对应就可以
     @RabbitHandler
+    @RabbitListener(queues = "serviceMessage")
     public void process(String obj){
         //log.info("receiver message Object:{}",obj);
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@"+obj);
+        System.out.println("!!!!!!!!!!!!!!!!!!!"+obj);
     }
 }
