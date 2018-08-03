@@ -11,4 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class MessageServiceImpl implements MessageService{
+
+   /* @Autowired
+    MessageRepository messageRepository;*/
 }

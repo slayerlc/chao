@@ -11,9 +11,9 @@ import lombok.Setter;
 @Setter
 public class Message {
 
-    String content;
+    private String content;
 
-    String time;
+    private String time;
 
-    String name;
+    private String name;
 }

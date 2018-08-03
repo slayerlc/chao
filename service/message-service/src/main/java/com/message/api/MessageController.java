@@ -1,8 +1,10 @@
 package com.message.api;
 
 import com.general.ResultMap;
+import com.message.amqp.MessageSend;
 import com.message.model.Message;
 import com.message.service.MessageService;
+import com.message.service.RestTemplateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,9 +22,16 @@ public class MessageController {
     @Autowired
     MessageService messageService;
 
+    @Autowired
+    MessageSend messageSend;
+
+    @Autowired
+    RestTemplateService restTemplateService;
+
     @PostMapping(value = "sendMessage")
-    public Object sendMessage(@RequestBody Message message){
-        return new ResultMap().successResult(message);
+    public ResultMap sendMessage(@RequestBody Message message){
+        messageSend.send();
+        return new ResultMap().successResult(restTemplateService.userHello(message));
     }
 
 }

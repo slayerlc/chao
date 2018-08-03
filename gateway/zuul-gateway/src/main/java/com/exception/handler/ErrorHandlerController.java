@@ -28,7 +28,7 @@ public class ErrorHandlerController implements ErrorController {
     @RequestMapping("/error")
     public ResultMap handlerError() {
         RequestContext ctx = RequestContext.getCurrentContext();
-        ctx.getResponse().setContentType(ContentType.APPLICATION_JSON.toString());
+        //ctx.getResponse().setContentType(ContentType.APPLICATION_JSON.toString());
         return new ResultMap(HttpStatus.SC_INTERNAL_SERVER_ERROR, false, ctx.getThrowable().getCause().getMessage());
     }
 }

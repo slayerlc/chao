@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.146:3306/dec_rest?useUnicode=true&characterEncoding=utf8&mysqlEncoding=utf8
+    username: root
+    password: 123456
+  jpa:
+    show-sql: true
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: guest
+      password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka #这里可以通过“，”注册到多个eurekaServer上面 ,http://localhost:8003/eureka/

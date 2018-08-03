@@ -2,6 +2,8 @@ package com.general;
 
 import com.general.constant.HttpStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
@@ -9,6 +11,8 @@ import java.util.Date;
  * @Autor lvchao
  * @date 2018/6/2
  */
+@Setter
+@Getter
 public class ResultMap {
 
     private Date time;

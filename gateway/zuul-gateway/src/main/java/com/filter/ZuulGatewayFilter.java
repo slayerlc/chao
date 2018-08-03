@@ -54,12 +54,9 @@ public class ZuulGatewayFilter extends ZuulFilter {
      */
     @Override
     public Object run() throws ZuulException {
-        RequestContext ctx = RequestContext.getCurrentContext();
-        System.out.println("run");
         RequestContext requestContext = RequestContext.getCurrentContext();
-            HttpServletRequest httpServletRequest = requestContext.getRequest();
-            System.out.println(httpServletRequest.getRequestURL());
-            //throw new RuntimeException("filter error");
+        HttpServletRequest httpServletRequest = requestContext.getRequest();
+        //throw new RuntimeException("filter error");
         return null;
     }
 }
