@@ -1,7 +1,9 @@
 package com.message.service.impl;
 
+import com.message.model.Message;
 import com.message.service.MessageService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,6 +14,10 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class MessageServiceImpl implements MessageService{
 
-   /* @Autowired
+    /*@Autowired
     MessageRepository messageRepository;*/
+
+    public Message testService(Message message){
+        return message;
+    }
 }

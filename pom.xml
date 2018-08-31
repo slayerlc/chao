@@ -58,22 +58,10 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- 熔断器配置 -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>
-
         <!-- 入该模块能够自动为 Spring Boot 构建的应用提供 一系列用千监控的端点。-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
-
-        <!-- ribbon是基于HTTP和TCP的客户端负载均衡器 ,也可以用来做 服务消费   -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->

@@ -1,5 +1,4 @@
-package com.message.model;/*
-package com.message.api;
+package com.message.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,11 +11,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-*/
+
 /**
  * @Author: lvchao
  * @Date: 2018-08-02 17:37
- *//*
+ */
 
 @Entity
 @Table(name = "dec_construction_site")
@@ -73,4 +72,3 @@ public class DecConstructionSite {
     private Date gmtModified;
 
 }
-*/

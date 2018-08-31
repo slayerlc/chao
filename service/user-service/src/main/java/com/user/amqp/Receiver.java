@@ -17,7 +17,7 @@ public class Receiver {
     @RabbitHandler
     @RabbitListener(queues = "serviceUser")
     public void process(String obj){
-        //log.info("receiver message Object:{}",obj);
+        log.info("receiver content:{}",obj);
         System.out.println("@@@@@@@@@@@@@@@@@@@@@"+obj);
     }
 }

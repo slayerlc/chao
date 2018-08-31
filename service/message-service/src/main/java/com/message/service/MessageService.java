@@ -1,5 +1,7 @@
 package com.message.service;
 
+import com.message.model.Message;
+
 /**
  * @Author: lvchao
  * @Date: 2018-07-30 15:41
@@ -7,4 +9,5 @@ package com.message.service;
 
 public interface MessageService {
 
+    Message testService(Message message);
 }

@@ -34,6 +34,12 @@
             <version>${common.version}</version>
         </dependency>
 
+        <!-- spring boot redis 支持 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
+        </dependency>
+
 	</dependencies>
 
     <build>

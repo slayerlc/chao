@@ -40,7 +40,6 @@ public class ZuulGatewayFilter extends ZuulFilter {
      */
     @Override
     public boolean shouldFilter() {
-        System.out.println("shouldFilter");
         return true;
     }
 
