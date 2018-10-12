@@ -18,6 +18,7 @@ public class MessageSend {
 
     public void send(String content){
         log.info("start send content:{}",content);
-        this.amqpTemplate.convertAndSend("serviceFanoutExchange",null,content);
+        //this.amqpTemplate.convertAndSend("serviceFanoutExchange",null,content);
+        this.amqpTemplate.convertAndSend("serviceFanoutExchange","serviceMessage",content);
     }
 }

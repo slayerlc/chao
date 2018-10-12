@@ -36,7 +36,7 @@
         <common.version>1.0.0</common.version>
     </properties>
 
-    <!-- 这个是用来统一spring cloud 的版本用的 但是在eureka pom里面 eureka-server 还是得加版本号不知道为什么 不然找不到注解-->
+    <!-- 这个是用来统一spring cloud 的版本用的 -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -56,6 +56,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
         <!-- 入该模块能够自动为 Spring Boot 构建的应用提供 一系列用千监控的端点。-->
