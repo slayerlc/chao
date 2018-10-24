@@ -19,7 +19,7 @@ public class RedisConfig {
     @Bean
     public JedisConnectionFactory redisConnectionFactory() {
 
-        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("server", 6379);
+        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("localhost", 6379);
         return new JedisConnectionFactory(config);
     }
 }

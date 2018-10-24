@@ -47,7 +47,7 @@ public class ZuulGatewayApplication {
     }
 
     /**
-     * 跨域设置 还没测试过
+     * 跨域设置
      * @return
      */
     @Bean
