@@ -7,6 +7,8 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 404页面没找到
  * @Author: lvchao
@@ -22,7 +24,7 @@ public class ErrorHandlerController implements ErrorController {
     }
 
     @RequestMapping("/error")
-    public ResultMap handlerError(){
-        return new ResultMap().errorResult(HttpStatus.SC_NOT_FOUND,false,"页面不存在");
+    public ResultMap handlerError(HttpServletRequest request){
+        return new ResultMap(HttpStatus.SC_NOT_FOUND,false,"页面不存在");
     }
 }

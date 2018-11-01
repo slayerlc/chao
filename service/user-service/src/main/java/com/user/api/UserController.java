@@ -15,7 +15,7 @@ public class UserController {
     @PostMapping(value = "hello")
     public ResultMap hello(@RequestBody String message){
         String str = "机会已经给你了，你自己不争气。";
-        return new ResultMap().successResult(str);
+        return new ResultMap(str);
     }
 
 }

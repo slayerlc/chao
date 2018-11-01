@@ -20,7 +20,7 @@ public class ExceptionHandlerAdvice {
     @ExceptionHandler(Exception.class)
     public ResultMap handleException(Exception e) {
         log.error("message-service error:{}",e.getMessage(),e);
-        return new ResultMap().errorResult(HttpStatus.SC_INTERNAL_SERVER_ERROR, false, e.getMessage());
+        return new ResultMap(HttpStatus.SC_INTERNAL_SERVER_ERROR, false, e.getMessage());
     }
 
     /**

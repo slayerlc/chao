@@ -12,10 +12,12 @@ spring:
     username: guest
     password: guest
   redis:
-    hostName: 127.0.0.1
-    port: 6379
+   # hostName: 127.0.0.1
+   # port: 6379
     database: 0
     timeout: 3000
+    cluster:
+      nodes: 127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381
     pool:
       max-active: 100
       max-wait: -1

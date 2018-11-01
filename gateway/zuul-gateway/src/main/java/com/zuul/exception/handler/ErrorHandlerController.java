@@ -25,10 +25,10 @@ public class ErrorHandlerController implements ErrorController {
         return "/error";
     }
 
-    @RequestMapping("/error")
+    /*@RequestMapping("/error")
     public ResultMap handlerError() {
         RequestContext ctx = RequestContext.getCurrentContext();
         //ctx.getResponse().setContentType(ContentType.APPLICATION_JSON.toString());
         return new ResultMap(HttpStatus.SC_INTERNAL_SERVER_ERROR, false, ctx.getThrowable().getCause().getMessage());
-    }
+    }*/
 }

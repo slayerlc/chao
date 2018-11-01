@@ -14,4 +14,11 @@ public class Lock {
 
     String value;
     String key;
+
+    public Lock() {
+    }
+
+    public Lock(String key) {
+        this.key = key;
+    }
 }
