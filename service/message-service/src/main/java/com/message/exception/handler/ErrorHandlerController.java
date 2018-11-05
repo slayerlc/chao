@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 404被tomcat容器拦截了
+ * 到不了controller
+ * 也就到不了@ControllerAdvice
  * 404页面没找到
  * @Author: lvchao
  * @Date: 2018-07-30 8:49

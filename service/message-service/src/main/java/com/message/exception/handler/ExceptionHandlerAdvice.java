@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 业务异常处理
  * @Author: lvchao
- * @Date: 2018-07-30 14:32
+ * @Date: 2018-07-30 14:32}
+ * 404被tomcat容器拦截了
+ * 到不了controller
+ * 也就到不了@ControllerAdvice
  */
 @ControllerAdvice
 @ResponseBody

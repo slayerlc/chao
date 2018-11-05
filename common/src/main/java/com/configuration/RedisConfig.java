@@ -26,9 +26,6 @@ public class RedisConfig {
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory){
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
-   /*     JdkSerializationRedisSerializer jdkSerializer = new JdkSerializationRedisSerializer();
-        redisTemplate.setKeySerializer(jdkSerializer);
-        redisTemplate.setValueSerializer(jdkSerializer);*/
         RedisSerializer<String> redisSerializer = new StringRedisSerializer();// Long类型不可以会出现异常信息;
         redisTemplate.setKeySerializer(redisSerializer);
         redisTemplate.setHashKeySerializer(redisSerializer);
