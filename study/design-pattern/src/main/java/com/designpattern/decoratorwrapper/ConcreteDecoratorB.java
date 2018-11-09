@@ -2,10 +2,14 @@ package com.designpattern.decoratorwrapper;
 
 public class ConcreteDecoratorB extends Decorator{
 
+    public ConcreteDecoratorB(Component component) {
+        super.setComponent(component);
+    }
+
 	@Override
-	public void Operation() {
-		System.out.println("����Ķ���B");
-		super.Operation();
+	public void operation() {
+		System.out.println("b");
+		super.operation();
 	}
 	
 }

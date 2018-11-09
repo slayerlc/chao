@@ -18,6 +18,6 @@ public class Receiver {
     @RabbitListener(queues = "serviceUser")
     public void process(String obj){
         log.info("receiver content:{}",obj);
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@"+obj);
+        System.out.println("teset"+obj);
     }
 }

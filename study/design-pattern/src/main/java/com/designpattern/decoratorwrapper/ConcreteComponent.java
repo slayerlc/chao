@@ -8,8 +8,8 @@ package com.designpattern.decoratorwrapper;
 public class ConcreteComponent implements Component{
 
 	@Override
-	public void Operation() {
-		System.out.println("������������");
+	public void operation() {
+		System.out.println("z");
 	}
 	
 }

@@ -3,13 +3,13 @@ package com.designpattern.decoratorwrapper;
 public abstract class Decorator implements Component {
 	public Component component;
 
-	public void SetComponent(Component component) {
+	public void setComponent(Component component) {
 		this.component = component;
 	}
 
-	public void Operation() {
+	public void operation() {
 		if (component != null) {
-			component.Operation();
+			component.operation();
 		}
 	}
 }

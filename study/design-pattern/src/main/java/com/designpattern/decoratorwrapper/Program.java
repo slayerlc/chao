@@ -8,14 +8,14 @@ public class Program{
 	public static void main(String[] args) {
 		
 		ConcreteComponent cc = new ConcreteComponent(); 
-		ConcreteDecoratorA cda = new ConcreteDecoratorA();
-		ConcreteDecoratorB cdb = new ConcreteDecoratorB();
-		ConcreteDecoratorC cdc = new ConcreteDecoratorC();
+		ConcreteDecoratorA cda = new ConcreteDecoratorA(cc);
+		ConcreteDecoratorB cdb = new ConcreteDecoratorB(cda);
+		ConcreteDecoratorC cdc = new ConcreteDecoratorC(cdb);
 		
-		cda.SetComponent(cc);
+	/*	cda.SetComponent(cc);
 		cdb.SetComponent(cda);
-		cdc.SetComponent(cdb);
+		cdc.SetComponent(cdb);*/
 		
-		cdc.Operation();
+		cdc.operation();
 	}
 }

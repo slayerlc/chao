@@ -7,9 +7,13 @@ package com.designpattern.decoratorwrapper;
  */
 public class ConcreteDecoratorA extends Decorator{
 
+    public ConcreteDecoratorA(Component component) {
+        super.setComponent(component);
+    }
+
 	@Override
-	public void Operation() {
-		System.out.println("����װ�ζ���A�Ĳ���");
-		super.Operation();
+	public void operation() {
+		System.out.println("a");
+		super.operation();
 	}
 }

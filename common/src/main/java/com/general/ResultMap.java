@@ -25,9 +25,9 @@ public class ResultMap {
     private Boolean status;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private String error;
+    private Object error;
 
-    public ResultMap(Integer status_code,boolean status, String error) {
+    public ResultMap(Integer status_code,boolean status, Object error) {
         this.time = new Date();
         this.status = status;
         this.status_code = status_code;

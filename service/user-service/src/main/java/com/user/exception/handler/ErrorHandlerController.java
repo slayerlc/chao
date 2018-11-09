@@ -23,6 +23,6 @@ public class ErrorHandlerController implements ErrorController {
 
     @RequestMapping("/error")
     public ResultMap handlerError(){
-        return new ResultMap().errorResult(HttpStatus.SC_NOT_FOUND,false,"页面不存在");
+        return new ResultMap(HttpStatus.SC_NOT_FOUND,false,"页面不存在");
     }
 }
