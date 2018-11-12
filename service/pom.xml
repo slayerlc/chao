@@ -18,6 +18,7 @@
     <modules>
         <module>user-service</module>
         <module>message-service</module>
+        <module>goods-service</module>
     </modules>
 
     <dependencies>
