@@ -7,7 +7,7 @@ package com.designpattern.decoratorwrapper;
 public class Program{
 	public static void main(String[] args) {
 		
-		ConcreteComponent cc = new ConcreteComponent(); 
+		ConcreteComponent cc = new ConcreteComponent();
 		ConcreteDecoratorA cda = new ConcreteDecoratorA(cc);
 		ConcreteDecoratorB cdb = new ConcreteDecoratorB(cda);
 		ConcreteDecoratorC cdc = new ConcreteDecoratorC(cdb);

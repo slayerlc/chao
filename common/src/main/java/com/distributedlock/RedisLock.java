@@ -1,5 +1,6 @@
 package com.distributedlock;
 
+import com.exception.BusinessException;
 import com.modle.Lock;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,7 @@ public class RedisLock {
             if (--tryNumber <= 0) {
                 return false;
             }
-            synchronized (redisTemplate){
+            synchronized (redisTemplate) {
                 if (!redisTemplate.hasKey(lock.getKey())) {
                     // value 保存到 当前线程的变量里   在解锁的时候 判断一下该锁 是不是此线程上的锁 如果不是则不能解锁其他线程上的锁
                     threadLocal.set(lock.getValue());
@@ -74,7 +75,7 @@ public class RedisLock {
                     if (result.equals("OK")) {
                         return true;
                     } else {
-                        throw new RuntimeException("数据加锁失败,请从新尝试!");
+                        return false;
                     }
                 }
             }
@@ -82,7 +83,6 @@ public class RedisLock {
                 //间隔多少秒尝试一次
                 Thread.sleep(timeout);
             } catch (InterruptedException e) {
-                e.printStackTrace();
                 return false;
             }
         } while (redisTemplate.hasKey(lock.getKey()));
@@ -91,6 +91,7 @@ public class RedisLock {
 
     /**
      * 这里其实也保证不了原子性  网上看的方案是使用lua 脚本去执行
+     *
      * @param key
      * @return
      */
@@ -98,7 +99,7 @@ public class RedisLock {
         if (redisTemplate.hasKey(key)) {
             Object value = redisTemplate.opsForValue().get(key);
             //这里存在一种情况 当线程A准备解锁的时候 此数据的锁正好过期 这个时候突然线程B又拿到了这个key给数据上锁  A这个时候正好执行delete(key)这行代码 结果A把B上的锁给删除了
-            //通过threadLocal 和 value 对比 当前解锁的线程和上锁的线程必须是同一个
+            //所以通过threadLocal 和 value 对比 当前解锁的线程和上锁的线程必须是同一个
             if (value != null && value.equals(threadLocal.get())) {
                 return redisTemplate.delete(key);
             }
@@ -106,10 +107,13 @@ public class RedisLock {
         return false;
     }
 
+    /**
+     *
+     * @param key  可以是一条数据的唯一ID
+     * @return
+     */
     public boolean addLock(String key) {
-        Lock lock = new Lock();
-        lock.setKey(key);
-        lock.setValue(UUID.randomUUID().toString());
+        Lock lock = new Lock(key,UUID.randomUUID().toString());
         return addLock(lock, TIMEOUT, TRYNUMBER, LOCKEXPIRETIME);
     }
 }

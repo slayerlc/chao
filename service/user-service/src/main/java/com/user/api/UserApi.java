@@ -4,6 +4,8 @@ import com.general.ResultMap;
 import com.user.entity.User;
 import com.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.awt.print.Pageable;
@@ -34,7 +36,7 @@ public class UserApi {
      * @param user
      * @return
      */
-    @PostMapping
+    @PostMapping(value = "updateUser")
     public ResultMap updateUser(@RequestBody User user){
         return new ResultMap();
     }
@@ -55,7 +57,7 @@ public class UserApi {
      * @return
      */
     @RequestMapping(value = "findUserByPage")
-    public ResultMap findUserByPage(@RequestBody User user, Pageable pageable){
+    public ResultMap findUserByPage(@RequestBody User user,@PageableDefault(sort = {"id"},value = 15, direction = Sort.Direction.DESC) Pageable pageable){
         return new ResultMap();
     }
 

@@ -18,6 +18,11 @@ public class Lock {
     public Lock() {
     }
 
+    public Lock(String value, String key) {
+        this.value = value;
+        this.key = key;
+    }
+
     public Lock(String key) {
         this.key = key;
     }

@@ -10,5 +10,6 @@ public class ConcreteSubject extends Subject{
 
 	public void setSubjectState(String subjectState) {
 		this.subjectState = subjectState;
+		this.notifyObserver();
 	}
 }

@@ -5,8 +5,8 @@ public class ConcreteObserver implements Observer{
 	private String name;
 	private String observerState;
 	private ConcreteSubject  concreteSubject;
-	
-	public String getName() {
+
+    public String getName() {
 		return name;
 	}
 
@@ -30,15 +30,20 @@ public class ConcreteObserver implements Observer{
 		this.concreteSubject = concreteSubject;
 	}
 
-	public ConcreteObserver(ConcreteSubject concreteSubject,String name){
+    public ConcreteObserver(String name) {
+        this.name = name;
+    }
+
+    public ConcreteObserver(ConcreteSubject concreteSubject, String name){
 		this.concreteSubject = concreteSubject;
 		this.name = name;
+        concreteSubject.attach(this);
 	}
 	
 	@Override
 	public void update() {
 		observerState = concreteSubject.getSubjectState();
-		System.out.println("�۲���"+this.name+"�µ�״̬��"+this.observerState);
+		System.out.println("-------"+this.name+"-------"+this.observerState);
 	}
 
 }

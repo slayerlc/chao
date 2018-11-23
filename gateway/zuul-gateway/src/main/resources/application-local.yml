@@ -6,3 +6,25 @@ spring:
     password: 123456
   jpa:
     show-sql: true
+zuul:
+  ratelimit:
+    enable: true
+    repository: REDIS  #储存类型
+    behind-proxy: true #代理
+    default-policy: #默认所有服务限流，
+      limit: 10 #可选 - 每个刷新时间窗口对应的请求数量限制
+      quota: 1000 #可选-  每个刷新时间窗口对应的请求时间限制（秒）
+      refresh-interval: 60 # 刷新时间窗口的时间，默认值 (秒)
+      type: # 可选 限流方式
+        - user
+        - origin
+        - url
+     # policies:  #这里也可以定义某些服务限流
+     #   myServiceId: #特定的路由
+     #   limit: 10 #可选- 每个刷新时间窗口对应的请求数量限制
+     #     quota: 1000 #可选-  每个刷新时间窗口对应的请求时间限制（秒）
+     #      refresh-interval: 60 # 刷新时间窗口的时间，默认值 (秒)
+     #      type: #可选 限流方式
+     #         - user
+     #         - origin
+     #         - url

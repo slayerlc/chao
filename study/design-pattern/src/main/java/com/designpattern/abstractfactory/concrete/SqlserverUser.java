@@ -7,12 +7,12 @@ public class SqlserverUser implements IUser{
 
 	@Override
 	public void insertUser(User user) {
-		System.out.println("Sqlserver���ݿ�:����һ��User����!");
+		System.out.println("Sqlserver!");
 	}
 
 	@Override
 	public User getUser(Long id) {
-		System.out.println("Sqlserver���ݿ�:���һ��User����!");
+		System.out.println("Sqlserver!");
 		return new User("Sqlserver");
 	}
 
