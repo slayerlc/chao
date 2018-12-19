@@ -1,10 +1,11 @@
+/*
 package com.designpattern.observer;
 
 public class ConcreteObserver implements Observer{
 	
 	private String name;
 	private String observerState;
-	private ConcreteSubject  concreteSubject;
+	private Subject  subject;
 
     public String getName() {
 		return name;
@@ -22,28 +23,28 @@ public class ConcreteObserver implements Observer{
 		this.observerState = observerState;
 	}
 
-	public ConcreteSubject getConcreteSubject() {
-		return concreteSubject;
+	public Subject getSubject() {
+		return subject;
 	}
 
-	public void setConcreteSubject(ConcreteSubject concreteSubject) {
-		this.concreteSubject = concreteSubject;
+	public void setSubject(Subject concreteSubject) {
+		this.subject = concreteSubject;
 	}
 
     public ConcreteObserver(String name) {
         this.name = name;
     }
 
-    public ConcreteObserver(ConcreteSubject concreteSubject, String name){
-		this.concreteSubject = concreteSubject;
+    public ConcreteObserver(Subject subject, String name){
 		this.name = name;
-        concreteSubject.attach(this);
+        subject.attach(this);
 	}
 	
 	@Override
 	public void update() {
-		observerState = concreteSubject.getSubjectState();
+		observerState = subject.getSubjectState();
 		System.out.println("-------"+this.name+"-------"+this.observerState);
 	}
 
 }
+*/

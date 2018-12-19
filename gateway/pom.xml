@@ -28,6 +28,12 @@
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
+        <!-- ribbon是基于HTTP和TCP的客户端负载均衡器 ,也可以用来做 服务消费   -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.chao</groupId>
             <artifactId>common</artifactId>

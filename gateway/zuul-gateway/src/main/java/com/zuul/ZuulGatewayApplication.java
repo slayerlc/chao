@@ -21,7 +21,7 @@ import org.springframework.web.filter.CorsFilter;
 
 import javax.servlet.http.HttpServletRequest;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.zuul","com.resttemplate"})
 @EnableEurekaClient
 @Configuration
 @EnableZuulProxy
