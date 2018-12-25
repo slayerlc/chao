@@ -30,13 +30,13 @@ public class RedisLock {
 
     private static final long TIMEOUT = 1000L;
 
-    private static final int TRYNUMBER = 10;
-
     private static final long LOCKEXPIRETIME = 100000L;
 
     private static final String SETNX = "NX";
 
     private static final String SETPX = "PX";
+
+    private int tryNumber = 10;
 
     ThreadLocal<String> threadLocal = new ThreadLocal<String>();
 
@@ -85,12 +85,11 @@ public class RedisLock {
             } catch (InterruptedException e) {
                 return false;
             }
-        } while (redisTemplate.hasKey(lock.getKey()));
-        return false;
+        } while (true);
     }
 
     /**
-     * 这里其实也保证不了原子性  网上看的方案是使用lua 脚本去执行
+     * 这里其实也保证不了原子性  网上看到有的方案是使用lua 脚本去执行
      *
      * @param key
      * @return
@@ -113,7 +112,7 @@ public class RedisLock {
      * @return
      */
     public boolean addLock(String key) {
-        Lock lock = new Lock(key,UUID.randomUUID().toString());
-        return addLock(lock, TIMEOUT, TRYNUMBER, LOCKEXPIRETIME);
+        Lock lock = new Lock(UUID.randomUUID().toString(),key);
+        return addLock(lock, TIMEOUT, tryNumber, LOCKEXPIRETIME);
     }
 }
