@@ -21,7 +21,12 @@ public class RestTemplateService {
     @Autowired
     private UserRestTemplateService userRestTemplateService;
 
+
     public void getPermissionList(){
         JSONObject jsonObject = userRestTemplateService.getPermissionList(userServiceUrl);
+    }
+
+    public JSONObject userLogin(String account, String password){
+        return userRestTemplateService.userLogin(userServiceUrl,account,password);
     }
 }

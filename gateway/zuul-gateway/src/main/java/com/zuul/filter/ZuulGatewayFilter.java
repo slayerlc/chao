@@ -4,9 +4,13 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import com.zuul.service.RestTemplateService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public class ZuulGatewayFilter extends ZuulFilter {
 
@@ -57,7 +61,21 @@ public class ZuulGatewayFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext requestContext = RequestContext.getCurrentContext();
         HttpServletRequest httpServletRequest = requestContext.getRequest();
-        //throw new RuntimeException("filter error");
+        HttpServletResponse httpServletResponse = requestContext.getResponse();
+
+        if(login(httpServletRequest,httpServletResponse,requestContext)){
+            return false;
+        }
         return null;
+    }
+
+    private boolean login(HttpServletRequest request, HttpServletResponse response, RequestContext context) {
+        String username = request.getAttribute("username").toString();
+        String password = request.getAttribute("password").toString();
+        UsernamePasswordToken token = new UsernamePasswordToken(username,password);
+        Subject subject = SecurityUtils.getSubject();
+        subject.getSession().setTimeout(3600000 * 24);
+        subject.login(token);
+        return true;
     }
 }

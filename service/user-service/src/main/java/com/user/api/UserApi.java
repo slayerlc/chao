@@ -22,6 +22,14 @@ public class UserApi {
     UserService userService;
 
     /**
+     * 登录
+     */
+    @PostMapping(value = "login")
+    public ResultMap login(@RequestBody User user){
+        return new ResultMap(userService.findUserByAccountAndPassword(user.getAccount(),user.getPassword()));
+    }
+
+    /**
      * 添加用户
      * @param user
      * @return
