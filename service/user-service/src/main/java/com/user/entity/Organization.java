@@ -1,7 +1,7 @@
 package com.user.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.modle.BaseModel;
+import com.model.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
@@ -36,24 +36,23 @@ public class Organization extends BaseModel {
     @Column(name = "description")
     String description;
 
-    //自关联 一对一   这个和下面那个 同时打开会 json序列化循环引用
-    /*@OneToOne()
+    //自关联 一对一
+    @OneToOne
     @JoinColumn(name = "org_parent",referencedColumnName = "id")
-    Organization orgParent;*/
+    Organization orgParent;
 
-    //自关联 一对多 查所有子部门
-    /*@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "org_parent")
-    Set<Organization> organizationSet;*/
-
-    @Column(name = "org_parent")
-    Long orgParent;
+   /* @Column(name = "org_parent")
+    Long orgParent;*/
 
     @ManyToMany(mappedBy = "organizationSet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonIgnoreProperties("organizationSet")
     Set<User> userSet;
 
-    @ManyToMany(mappedBy = "organizationSet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinTable(name = "role_org",
+            joinColumns = {@JoinColumn(name = "org_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
+    )
     @JsonIgnoreProperties("organizationSet")
     Set<Role> roleSet;
 

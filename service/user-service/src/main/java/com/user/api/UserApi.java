@@ -3,6 +3,7 @@ package com.user.api;
 import com.general.ResultMap;
 import com.user.entity.User;
 import com.user.service.UserService;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -56,6 +57,15 @@ public class UserApi {
     @GetMapping(value = "findAll")
     public ResultMap findAll(){
         return new ResultMap(userService.findAll());
+    }
+
+    /**
+     * 根据用户ID查询用户
+     * @return
+     */
+    @GetMapping(value = "findOne")
+    public ResultMap findOne(Long id){
+        return new ResultMap(userService.findById(id));
     }
 
     /**

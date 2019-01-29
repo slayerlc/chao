@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 @EnableEurekaClient   //配置了这个 就不用配置 @EnableDiscoveryClient
 @EnableCircuitBreaker  //熔断器配置
-@EnableAmqp
+/*@EnableAmqp*/
 public class UserServiceApplication {
 
     public static void main(String[] args) {

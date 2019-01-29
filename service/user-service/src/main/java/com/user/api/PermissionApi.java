@@ -1,11 +1,10 @@
 package com.user.api;
 
 import com.general.ResultMap;
+import com.user.entity.Permission;
 import com.user.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: lvchao
@@ -22,5 +21,10 @@ public class PermissionApi {
     @GetMapping(value = "getAll")
     public ResultMap getAll(){
         return new ResultMap(permissionService.getAll());
+    }
+
+    @PostMapping(value = "setPermission")
+    public ResultMap setPermission(@RequestBody Permission permission){
+        return new ResultMap(permissionService.addPermission(permission));
     }
 }

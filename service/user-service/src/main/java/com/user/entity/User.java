@@ -1,7 +1,7 @@
 package com.user.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.modle.IsDeleteModel;
+import com.model.IsDeleteModel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;

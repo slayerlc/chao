@@ -38,4 +38,11 @@ public interface UserService {
      * @return
      */
     List<User> findAll();
+
+    /**
+     * 根据ID查询用户信息
+     * @param id
+     * @return
+     */
+    User findById(Long id);
 }

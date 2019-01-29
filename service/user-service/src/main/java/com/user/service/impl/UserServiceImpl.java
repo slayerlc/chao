@@ -1,6 +1,5 @@
 package com.user.service.impl;
 
-import com.exception.BusinessException;
 import com.exception.UserException;
 import com.general.constant.CueConstant;
 import com.md5.MD5Encrypt;
@@ -71,6 +70,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    /**
+     * 根据ID查询用户信息
+     * @param id
+     * @return
+     */
+    @Override
+    public User findById(Long id) {
+        return userRepository.findById(id).get();
     }
 
     /**

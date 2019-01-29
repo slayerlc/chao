@@ -1,7 +1,7 @@
 package com.user.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.modle.BaseModel;
+import com.model.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
@@ -36,17 +36,12 @@ public class Role extends BaseModel {
     @Column(name = "description")
     String description;
 
-    @ManyToMany(mappedBy = "roleSet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    /*@ManyToMany(mappedBy = "roleSet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonIgnoreProperties("roleSet")
-    Set<User> userSet;
+    Set<User> userSet;*/
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @JoinTable(name = "role_org",
-            joinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "org_id", referencedColumnName = "id")}
-    )
-    @JsonIgnoreProperties("roleSet")
-    Set<Organization> organizationSet;
+    /*@ManyToMany(mappedBy = "roleSet",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    Set<Organization> organizationSet;*/
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "role_permission",

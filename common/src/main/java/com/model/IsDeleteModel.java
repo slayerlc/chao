@@ -1,12 +1,6 @@
-package com.modle;
-
-import lombok.Getter;
-import lombok.Setter;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+package com.model;
 
 import javax.persistence.*;
-import java.util.Date;
 
 /**
  * @Author: lvchao

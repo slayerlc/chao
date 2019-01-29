@@ -15,5 +15,7 @@ public class CueConstant {
         public static final String passwordError = "密码错误!";
 
         public static final String AccountExist = "账号已存在!";
+
+        public static final String UnLogin = "登录认证失败，请先登录!";
     }
 }

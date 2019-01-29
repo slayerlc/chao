@@ -1,10 +1,15 @@
-package com.modle;
+package com.model;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @Author: lvchao
  * @Date: 2019-01-04 9:54
  * @Email:641819417@qq.com
  */
+@Getter
+@Setter
 public class UserModel {
 
     String account;

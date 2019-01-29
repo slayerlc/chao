@@ -1,13 +1,14 @@
 package com.user.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.modle.BaseModel;
+import com.model.BaseModel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
 /**
@@ -28,18 +29,22 @@ public class Permission extends BaseModel {
     Long id;
 
     @Column(name = "permission_sign")
+    @NotBlank(message = "权限标识不能为空!")
     String permissionSign;
-
-    @Column(name = "permission_url")
-    String permissionUrl;
 
     @Column(name = "permission_name")
     String permissionName;
 
+    @Column(name = "permission_url")
+    String permissionUrl;
+
+    @Column(name = "authc_mode")
+    String authcMode;
+
     @Column(name = "description")
     String description;
 
-    @ManyToMany(mappedBy = "permissionSet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    /*@ManyToMany(mappedBy = "permissionSet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("permissionSet")
     Set<Organization> organizationSet;
 
@@ -49,6 +54,6 @@ public class Permission extends BaseModel {
 
     @ManyToMany(mappedBy = "permissionSet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnoreProperties("permissionSet")
-    Set<Role> roleSet;
+    Set<Role> roleSet;*/
 
 }

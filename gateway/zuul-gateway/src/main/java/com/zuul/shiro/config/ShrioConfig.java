@@ -1,13 +1,14 @@
 package com.zuul.shiro.config;
 
+import com.zuul.shiro.filter.MyShiroFilterFactoryBean;
 import com.zuul.shiro.realm.UserRealm;
+import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.apache.shiro.mgt.SecurityManager;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,16 +24,18 @@ import java.util.Map;
 public class ShrioConfig {
 
     @Bean
-    public ShiroFilterFactoryBean ShiroFilter(SecurityManager securityManager){
-        ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
+    public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager){
+        ShiroFilterFactoryBean shiroFilterFactoryBean = new MyShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
-        shiroFilterFactoryBean.setLoginUrl("/user-service/user/login");
+        shiroFilterFactoryBean.setLoginUrl("/v1/user-service/user/login");
         //shiroFilterFactoryBean.setSuccessUrl("");
+        //初始化shiro权限  可以想办法动态 添加权限设置 可以做到为每个服务做到权健鉴定  可以在页面上动态为url添加权限
         Map<String,String> map = new HashMap<>();
+        map.put("/v1/user-service/user/login","anon");
         map.put("/**","authc");
+        //map.put("/**","anon");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
-
-        return null;
+        return shiroFilterFactoryBean;
     }
 
     @Bean

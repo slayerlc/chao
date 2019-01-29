@@ -2,10 +2,13 @@ package com.resttemplate;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.modle.UserModel;
+import com.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author: lvchao
@@ -24,6 +27,9 @@ public class UserRestTemplateService {
 
     public JSONObject userLogin(String serviceUrl,String account, String password) {
         UserModel userModel = new UserModel(account,password);
-        return restTemplate.postForObject(serviceUrl + "/user/login",userModel,JSONObject.class);
+        Map map = new HashMap<>();
+        map.put("account",account);
+        map.put("password",password);
+        return restTemplate.postForObject(serviceUrl + "/user/login",map,JSONObject.class);
     }
 }

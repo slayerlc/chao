@@ -1,7 +1,6 @@
 package com.distributedlock;
 
-import com.exception.BusinessException;
-import com.modle.Lock;
+import com.model.Lock;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;

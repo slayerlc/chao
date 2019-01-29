@@ -1,4 +1,4 @@
-package com.modle;
+package com.model;
 
 import lombok.Getter;
 import lombok.Setter;

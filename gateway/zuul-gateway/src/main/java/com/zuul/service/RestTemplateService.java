@@ -22,11 +22,12 @@ public class RestTemplateService {
     private UserRestTemplateService userRestTemplateService;
 
 
-    public void getPermissionList(){
-        JSONObject jsonObject = userRestTemplateService.getPermissionList(userServiceUrl);
+    public JSONObject getPermissionList(){
+       return userRestTemplateService.getPermissionList(userServiceUrl);
     }
 
     public JSONObject userLogin(String account, String password){
         return userRestTemplateService.userLogin(userServiceUrl,account,password);
     }
+
 }
