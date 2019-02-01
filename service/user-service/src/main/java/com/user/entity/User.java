@@ -1,5 +1,6 @@
 package com.user.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.model.IsDeleteModel;
 import lombok.Getter;
@@ -37,11 +38,13 @@ public class User extends IsDeleteModel {
     String account;
 
     @Column(name = "salt")
+    @JsonIgnore
     String salt;
 
     @Column(name = "password")
     @Size(min = 6, message = "密码长度不能小于6个字符!")
     @NotBlank(message = "密码不能为空!")
+    @JsonIgnore
     String password;
 
     @Column(name = "nickname")
@@ -71,7 +74,7 @@ public class User extends IsDeleteModel {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     Date birthday;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "user_org",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "org_id", referencedColumnName = "id")}
@@ -79,7 +82,7 @@ public class User extends IsDeleteModel {
     @JsonIgnoreProperties("userSet")
     Set<Organization> organizationSet;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "user_role",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
@@ -87,7 +90,7 @@ public class User extends IsDeleteModel {
     @JsonIgnoreProperties("userSet")
     Set<Role> roleSet;
 
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "user_permission",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "permission_id", referencedColumnName = "id")}

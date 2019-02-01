@@ -9,6 +9,8 @@ import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 这里针对网关异常统一处理
  * 各个微服务的异常在各自的微服务里处理
@@ -26,12 +28,16 @@ public class ErrorHandlerController implements ErrorController {
     }
 
     @RequestMapping("/error")
-    public ResultMap handlerError() {
+    public ResultMap handlerError(HttpServletRequest request) {
         RequestContext ctx = RequestContext.getCurrentContext();
+        Integer httpStatus = (Integer) request.getAttribute("javax.servlet.error.status_code");
         //ctx.getResponse().setContentType(ContentType.APPLICATION_JSON.toString());
-        if(ctx == null || ctx.size() <= 0){
-            return new ResultMap(HttpStatus.SC_NOT_FOUND, false,ctx);
+        if(httpStatus == HttpStatus.SC_NOT_FOUND){
+            return new ResultMap(httpStatus, false,"页面不存在");
         }
-        return new ResultMap(HttpStatus.SC_INTERNAL_SERVER_ERROR, false, ctx.getThrowable().getCause().getCause().getMessage());
+        if(httpStatus == HttpStatus.SC_UNAUTHORIZED){
+            return new ResultMap(httpStatus, false,"权限不足,拒接访问.");
+        }
+        return new ResultMap(httpStatus, false, ctx.getThrowable().getCause().getCause().getMessage());
     }
 }

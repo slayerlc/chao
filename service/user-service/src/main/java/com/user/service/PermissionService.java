@@ -28,4 +28,11 @@ public interface PermissionService {
      * @return
      */
     Permission updatePermission(Permission permission);
+
+    /**
+     * 根据ID批量查询
+     * @param iterable
+     * @return
+     */
+    List<Permission> getAllList(Iterable<Long> iterable);
 }

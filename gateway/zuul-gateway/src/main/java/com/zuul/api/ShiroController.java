@@ -1,5 +1,6 @@
 package com.zuul.api;
 
+import com.exception.BusinessException;
 import com.general.ResultMap;
 import com.zuul.shiro.filter.MyShiroFilterFactoryBean;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;

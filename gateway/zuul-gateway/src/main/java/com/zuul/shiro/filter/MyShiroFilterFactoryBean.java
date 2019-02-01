@@ -2,6 +2,7 @@ package com.zuul.shiro.filter;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.exception.SystemException;
 import com.zuul.service.RestTemplateService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -29,10 +30,15 @@ public class MyShiroFilterFactoryBean extends ShiroFilterFactoryBean {
     /**
      * 动态更新权限
      */
-    public synchronized void updatePermission() {
+    public synchronized void updatePermission(){
+        AbstractShiroFilter shiroFilter = null;
         try {
-            AbstractShiroFilter shiroFilter = (AbstractShiroFilter) this.getObject();
-            PathMatchingFilterChainResolver filterChainResolver = (PathMatchingFilterChainResolver) shiroFilter.getFilterChainResolver();
+            shiroFilter = (AbstractShiroFilter) this.getObject();
+        } catch (Exception e) {
+            log.error("动态更新权限报错 shiroFilter = {}",shiroFilter);
+            throw new SystemException("系统权限更新错误,请联系管理员.",e);
+        }
+        PathMatchingFilterChainResolver filterChainResolver = (PathMatchingFilterChainResolver) shiroFilter.getFilterChainResolver();
             DefaultFilterChainManager defaultFilterChainManager = (DefaultFilterChainManager) filterChainResolver.getFilterChainManager();
             //清空拦截器 和拦截工厂的储存 的权限
             defaultFilterChainManager.getFilterChains().clear();
@@ -52,9 +58,5 @@ public class MyShiroFilterFactoryBean extends ShiroFilterFactoryBean {
             }
             defaultFilterChainManager.createChain("/v1/user-service/user/login","anon");
             defaultFilterChainManager.createChain("/**","authc");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }

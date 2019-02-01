@@ -22,9 +22,9 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 30000 #路由转发的请求命令执行的超时时间
+            timeoutInMilliseconds: 300000 #路由转发的请求命令执行的超时时间
 ribbon:
-  ConnectTimeout: 30000 #路由转发的请求的时候，创建请求连接的超时时间。请求超时时当这个时间小于上面的熔断时间会进行重试路由请求
+  ConnectTimeout: 10000 #路由转发的请求的时候，创建请求连接的超时时间。请求超时时当这个时间小于上面的熔断时间会进行重试路由请求
   ReadTimeout: 30000 #这个超时和上面的connectTimeOut类似 只是他是对创建请求连接之后的超时时间 这个值小于connectTimeout的值的时候会进行重试路由请求
   #可以设置重试次数具体参数看文档   zuul.retryable 全局关闭重试  zuul.routes.<route>.retryable=false指定路由服务关闭重试
 restUrl:

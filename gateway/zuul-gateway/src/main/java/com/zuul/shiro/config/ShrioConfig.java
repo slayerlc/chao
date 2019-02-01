@@ -29,7 +29,7 @@ public class ShrioConfig {
         shiroFilterFactoryBean.setSecurityManager(securityManager);
         shiroFilterFactoryBean.setLoginUrl("/v1/user-service/user/login");
         //shiroFilterFactoryBean.setSuccessUrl("");
-        //初始化shiro权限  可以想办法动态 添加权限设置 可以做到为每个服务做到权健鉴定  可以在页面上动态为url添加权限
+        //TODO 初始化shiro权限  可以想办法动态 添加权限设置 可以做到为每个服务做到权健鉴定  可以在页面上动态为url添加权限
         Map<String,String> map = new HashMap<>();
         map.put("/v1/user-service/user/login","anon");
         map.put("/**","authc");

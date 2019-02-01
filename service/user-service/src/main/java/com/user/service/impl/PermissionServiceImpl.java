@@ -33,12 +33,23 @@ public class PermissionServiceImpl implements PermissionService{
     }
 
     /**
+     * 根据ID批量查询
+     * @param iterable
+     * @return
+     */
+    @Override
+    public List<Permission> getAllList(Iterable<Long> iterable) {
+        return repository.findAllById(iterable);
+    }
+
+    /**
      * 添加权限
      * @param permission
      * @return
      */
     @Override
     public Permission addPermission(Permission permission) {
+        //TODO 记得调用zuul的接口更新shiro权限设置
         return repository.save(permission);
     }
 
@@ -54,6 +65,7 @@ public class PermissionServiceImpl implements PermissionService{
             log.error("PermissionId不存在,更新失败. permissionId = {}",permission.getId());
             throw new BusinessException("更新失败,权限不存在.");
         }
+        //TODO 记得调用zuul的接口更新shiro权限设置
         return repository.save(permission);
     }
 }

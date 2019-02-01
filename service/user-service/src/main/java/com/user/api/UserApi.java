@@ -1,15 +1,17 @@
 package com.user.api;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.general.ResultMap;
 import com.user.entity.User;
 import com.user.service.UserService;
-import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Pageable;
 
 /**
  * @author lvchao
@@ -47,7 +49,7 @@ public class UserApi {
      */
     @PostMapping(value = "updateUser")
     public ResultMap updateUser(@RequestBody User user){
-        return new ResultMap();
+        return new ResultMap(userService.updateUser(user));
     }
 
     /**
@@ -69,14 +71,14 @@ public class UserApi {
     }
 
     /**
-     * 分页查找用户
+     * 分页条件查找用户
      * @param user
      * @param pageable
      * @return
      */
-    @RequestMapping(value = "findUserByPage")
-    public ResultMap findUserByPage(@RequestBody User user,@PageableDefault(sort = {"id"},value = 15, direction = Sort.Direction.DESC) Pageable pageable){
-        return new ResultMap();
+    @PostMapping(value = "findUserByPage")
+    public ResultMap findUserByPage(@RequestBody(required = false) User user,@PageableDefault(sort = {"id"},value = 15, direction = Sort.Direction.DESC) Pageable pageable){
+        return new ResultMap(userService.findUserByPage(user,pageable));
     }
 
 }
