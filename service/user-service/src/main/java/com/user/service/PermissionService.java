@@ -21,4 +21,11 @@ public interface PermissionService {
      * @return
      */
     Permission addPermission(Permission permission);
+
+    /**
+     * 更新权限
+     * @param permission
+     * @return
+     */
+    Permission updatePermission(Permission permission);
 }

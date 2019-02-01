@@ -36,10 +36,16 @@ public class Permission extends BaseModel {
     String permissionName;
 
     @Column(name = "permission_url")
+    @NotBlank(message = "权限地址不能为空!")
     String permissionUrl;
 
     @Column(name = "authc_mode")
+    @NotBlank(message = "是否鉴权!anon匿名访问,authc需要鉴权.")
     String authcMode;
+
+    @Column(name = "authc_sign")
+    @NotBlank(message = "所需权限设置不能为空!")
+    String authcSign;
 
     @Column(name = "description")
     String description;

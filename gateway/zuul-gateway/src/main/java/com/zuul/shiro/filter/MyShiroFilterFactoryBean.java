@@ -42,11 +42,11 @@ public class MyShiroFilterFactoryBean extends ShiroFilterFactoryBean {
             JSONArray jsonArray = jsonResources.getJSONArray("data");
             for(int i = 0; i < jsonArray.size(); i++){
                 JSONObject jsonPermission = jsonArray.getJSONObject(i);
-                String permissionSign = jsonPermission.getString("permissionSign");
+                String authcSign = jsonPermission.getString("authcSign");
                 String authcMode = jsonPermission.getString("authcMode");
                 StringBuffer sb = new StringBuffer(authcMode);
                 if(StringUtils.isNotEmpty(authcMode)){
-                    sb.append(",").append("[").append(permissionSign).append("]");
+                    sb.append(",").append(authcSign);
                 }
                 defaultFilterChainManager.createChain(jsonPermission.getString("permissionUrl"),sb.toString());
             }

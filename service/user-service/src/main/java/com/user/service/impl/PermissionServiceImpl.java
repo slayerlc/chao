@@ -1,5 +1,6 @@
 package com.user.service.impl;
 
+import com.exception.BusinessException;
 import com.user.Repository.PermissionRepository;
 import com.user.entity.Permission;
 import com.user.service.PermissionService;
@@ -31,8 +32,28 @@ public class PermissionServiceImpl implements PermissionService{
         return repository.findAll();
     }
 
+    /**
+     * 添加权限
+     * @param permission
+     * @return
+     */
     @Override
     public Permission addPermission(Permission permission) {
+        return repository.save(permission);
+    }
+
+    /**
+     * 更新权限
+     * @param permission
+     * @return
+     */
+    @Override
+    public Permission updatePermission(Permission permission) {
+        Permission p = repository.findById(permission.getId()).get();
+        if(p == null){
+            log.error("PermissionId不存在,更新失败. permissionId = {}",permission.getId());
+            throw new BusinessException("更新失败,权限不存在.");
+        }
         return repository.save(permission);
     }
 }

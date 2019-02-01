@@ -18,13 +18,33 @@ public class PermissionApi {
     @Autowired
     private PermissionService permissionService;
 
+    /**
+     * 查询所有权限
+     * @return
+     */
     @GetMapping(value = "getAll")
     public ResultMap getAll(){
         return new ResultMap(permissionService.getAll());
     }
 
+    /**
+     * 添加权限
+     * @param permission
+     * @return
+     */
     @PostMapping(value = "setPermission")
     public ResultMap setPermission(@RequestBody Permission permission){
         return new ResultMap(permissionService.addPermission(permission));
     }
+
+    /**
+     * 更新权限
+     * @param permission
+     * @return
+     */
+    @PostMapping(value = "updatePermission")
+    public ResultMap updatePermission(@RequestBody Permission permission){
+        return new ResultMap(permissionService.updatePermission(permission));
+    }
+
 }

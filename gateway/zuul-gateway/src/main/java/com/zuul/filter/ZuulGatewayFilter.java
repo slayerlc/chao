@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ZuulGatewayFilter extends ZuulFilter {
 
+    public static final long expireTime = 3600000*24;
+
     /**
      * 过滤器类型 他决定在过滤器在请求的哪个生命周期中执行
      * 比如定义为pre代表 请求会在被路由之前执行
@@ -75,7 +77,7 @@ public class ZuulGatewayFilter extends ZuulFilter {
         String password = request.getParameter("password");
         UsernamePasswordToken token = new UsernamePasswordToken(username, password);
         Subject subject = SecurityUtils.getSubject();
-        subject.getSession().setTimeout(3600000 * 24);
+        subject.getSession().setTimeout(expireTime);
         subject.login(token);
         return true;
     }
